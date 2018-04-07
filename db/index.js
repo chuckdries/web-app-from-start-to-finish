@@ -1,1 +1,1 @@
-module.exports.posts = require('./posts');
+exports.users = require('./users');
