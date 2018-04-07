@@ -1,0 +1,22 @@
+{
+  "name": "web-app-from-start-to-finish",
+  "version": "1.0.0",
+  "description": "web-app-from-start-to-finish",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chuckdries/web-app-from-start-to-finish.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chuckdries/web-app-from-start-to-finish/issues"
+  },
+  "homepage": "https://github.com/chuckdries/web-app-from-start-to-finish#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
