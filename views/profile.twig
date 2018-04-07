@@ -1,0 +1,9 @@
+<p>
+ID: {{ user.id }}<br/>
+Username: {{ user.username }}<br/>
+Name: {{ user.displayName }}<br/>
+{% for email in user.emails %}
+Email: {{ email.value }}<br/>
+{% endfor %}
+</p>
+<a href="/logout">Log out</a>
