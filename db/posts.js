@@ -1,15 +1,7 @@
-
-const posts = {
-  1: {
-    id: 1,
-    date: '1523064754632',
-    userId: 1,
-    message: 'hello world'
-  }
-}
+const dbPromise = require('./base');
 
 module.exports.getById = async (id) => {
-  if(posts[id]){
+  if (posts[id]) {
     return posts[id];
   } else {
     return null;
@@ -17,12 +9,27 @@ module.exports.getById = async (id) => {
 }
 
 module.exports.getAll = async () => {
-  return Object.values(posts);
+  const db = await dbPromise;
+  const posts = await db.all(
+    `SELECT posts.id,
+    users.displayName as 'author',
+    posts.message
+    FROM Posts
+    LEFT JOIN users ON posts.userId = users.id;`
+  );
+  return posts;
 }
 
 module.exports.insert = async (post) => {
-  const id = Math.max(...Object.keys(posts)) + 1;
-  post.id = id;
-  posts[id] = post;
-  return true;
+  const db = await dbPromise;
+  db.run(`INSERT INTO Posts (
+    userId,
+    message
+    )
+    VALUES (
+        '${post.userId}',
+        '${post.message}'
+    );
+  `);
+  return;
 }
