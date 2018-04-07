@@ -3,4 +3,8 @@
 {% block body %}
   <h1>{{title}}</h1>
   <p>Welcome to {{title}}</p>
+  {% for post in posts %}
+    <h3>{{ post.userName }}</h3>
+    <p>{{ post.message }}</p>
+    {% endfor %}
 {% endblock %}
